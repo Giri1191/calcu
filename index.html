@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: rgb(72, 170, 202);
+        }
+        .container{
+            width: 500px;
+            height: 70%;
+            box-shadow:  0px 0px 5px 5px rgb(222, 206, 209);
+            align-content: center;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 10px;
+            padding: 20px;
+            background-color: rgb(215, 215, 225);
+        }
+
+        #calculator {
+            text-align: right;
+            height: 50px;
+            line-height: 50px;
+            padding: 16px 8px;
+            font-size: 25px;
+            background-color: rgb(174, 217, 224);
+        }
+        .button{
+            background-color: rgb(175, 128, 208);
+            padding: 20px;
+            font-size: x-large;
+            box-shadow: 0px 0px 5px 5px grey;
+            border-radius: 5px;
+        }
+        #btn{
+            background-color: rgb(128, 206, 206);
+            border-radius: 5px;
+        }
+        #btn1{
+            background-color: burlywood;
+            border-radius: 5px;
+        }
+        #btn2{
+            background-color: rgb(95, 157, 95);
+            border-radius: 5px;
+        }
+        #btn3{
+            background-color: rgb(210, 101, 159);
+            border-radius: 5px;
+        }
+        #btn:hover{
+            background-color: white;
+        }
+        #btn1:hover{
+            background-color: white;
+        }   
+        #btn2:hover{
+            background-color: white;
+        } 
+        #btn3:hover{
+            background-color: white;
+        } 
+        .button:hover{
+            background-color: white;
+        }
+        @media(max-width:768px){
+            .container{
+                width: auto;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <div id="calculator">
+
+            </div>
+            <div class="buttons">
+                <div id="btn" class="button">C</div>
+                <div id="btn1" class="button">DEL</div>
+                <div id="btn2" class="button">=</div>
+                <div id="btn3" class="button">+</div>
+                <div class="button">1</div>
+                <div class="button">2</div>
+                <div class="button">3</div>
+                <div id="btn3" class="button">-</div>
+                <div class="button">4</div>
+                <div class="button">5</div>
+                <div class="button">6</div>
+                <div id="btn3" class="button">*</div>
+                <div class="button">7</div>
+                <div class="button">8</div>
+                <div class="button">9</div>
+                <div id="btn3" class="button">/</div>
+                <div class="button">0</div>
+                <div id="btn3" class="button">.</div>
+                <div id="btn3" class="button">(</div>
+                <div id="btn3" class="button">)</div>
+            </div>
+        </div>
+    </center>
+    <script>
+
+        let display = document.getElementById("calculator")
+        let a = Array.from(document.getElementsByClassName('buttons'))
+        console.log(a)
+        a.map((e) => {
+            e.addEventListener("click", (h) => {
+                console.log(h.target.innerText)
+                switch (h.target.innerText) {
+                    case "C":
+                        display.innerText = ""
+                        break
+                    case "DEL":
+                        display.innerText = display.innerText.slice(0, -1)
+                        break
+                    case "=":
+                        display.innerText = eval(display.innerText)
+                        break
+                    default:
+                        display.innerText += h.target.innerText
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
